@@ -1,43 +1,49 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 
-// import Todo from "../models/todo";
+import Todo from "../models/todo";
 
-// type TodosContextObj = {
-//     items: Todo[];
-//     addTodo: (text: string) => void;
-//     removeTodo: (id: string) => void;
-// };
+type TodosContextObj = {
+    items: Todo[];
+    addTodo: (text: string) => void;
+    removeTodo: (id: string) => void;
+};
 
-// export const TodosContext = React.createContext<TodosContextObj>({
-//     items: [],
-//     addTodo: () => {},
-//     removeTodo: (id: string) => {},
-// });
+export const TodosContext = React.createContext<TodosContextObj>({
+    items: [],
+    addTodo: () => {},
+    removeTodo: (id: string) => {},
+});
 
-// const TodosContextProvider: React.FC = (props) => {
-//     const [todos, setTodos] = useState<Todo[]>([]);
+const TodosContextProvider: React.FC<{ children: React.ReactNode }> = (
+    props
+) => {
+    const [todos, setTodos] = useState<Todo[]>([]);
 
-//     const addTodoHandler = (todoText: string) => {
-//         const newTodo = new Todo(todoText);
-//         setTodos((prev) => [...prev, newTodo]);
-//     };
+    const addTodoHandler = (todoText: string) => {
+        const newTodo = new Todo(todoText);
 
-//     const removeTodoHandler = (id: string) => {
-//         setTodos((prev) => {
-//             return prev.filter((todo) => todo.id !== id);
-//         });
-//     };
+        setTodos((prevTodos) => {
+            return [...prevTodos, newTodo];
+        });
+    };
 
-//     const contextValue: TodosContextObj = {
-//         items: todos,
-//         addTodo: addTodoHandler,
-//         removeTodo: removeTodoHandler,
-//     };
-//     return (
-//         <TodosContext.Provider value={contextValue}>
-//             {props.children}
-//         </TodosContext.Provider>
-//     );
-// };
+    const removeTodoHandler = (todoId: string) => {
+        setTodos((prevTodos) => {
+            return prevTodos.filter((todo) => todo.id !== todoId);
+        });
+    };
 
-// export default TodosContextProvider;
+    const contextValue: TodosContextObj = {
+        items: todos,
+        addTodo: addTodoHandler,
+        removeTodo: removeTodoHandler,
+    };
+
+    return (
+        <TodosContext.Provider value={contextValue}>
+            {props.children}
+        </TodosContext.Provider>
+    );
+};
+
+export default TodosContextProvider;

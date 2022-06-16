@@ -1,0 +1,11 @@
+.header {
+    height: 100%;
+    background-color: rgb(176, 85, 10);
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    margin: 0;
+}

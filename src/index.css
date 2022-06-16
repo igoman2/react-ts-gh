@@ -5,4 +5,88 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #3f3f3f;
+}
+
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+table,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+textarea,
+blockquote,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    margin: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+*:focus {
+    outline: none;
+}
+
+a {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    -webkit-appearance: none;
+}
+input:-webkit-autofill,
+input:hover,
+input:focus {
+    background-color: none;
+    box-shadow: none;
+    outline: none;
+}
+input[type="email"]::-ms-clear,
+input[type="tel"]::-ms-clear,
+input[type="text"]::-ms-clear,
+input[type="password"]::-ms-reveal {
+    display: none;
+}
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+a,
+button {
+    color: #000000;
 }

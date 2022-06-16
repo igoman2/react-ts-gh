@@ -1,0 +1,10 @@
+.menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu li {
+    list-style: none;
+    padding: 10px;
+    cursor: pointer;
+}

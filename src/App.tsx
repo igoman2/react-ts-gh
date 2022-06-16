@@ -1,26 +1,23 @@
-import NewTodo from "./components/NewTodo";
-import Todo from "./models/todo";
-import Todos from "./components/Todos";
-import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Header from "./layouts/Header";
+import Order from "./pages/Order";
+import Todo from "./pages/Todo";
+import TodosContextProvider from "./store/todos-context";
 
 function App() {
-    const [todos, setTodos] = useState<Todo[]>([]);
-
-    const addTodoHandler = (todoText: string) => {
-        const newTodo = new Todo(todoText);
-        setTodos((prev) => [...prev, newTodo]);
-    };
-
-    const removeTodoHandler = (todoId: string) => {
-        setTodos((prev) => {
-            return prev.filter((todo) => todo.id !== todoId);
-        });
-    };
     return (
-        <div className="App">
-            <NewTodo onAddTodo={addTodoHandler} />
-            <Todos items={todos} onRemoveTodo={removeTodoHandler} />
-        </div>
+        <BrowserRouter>
+            <Header />
+            <TodosContextProvider>
+                <div className="App">
+                    <Routes>
+                        <Route path="/todo" element={<Todo />}></Route>
+                        <Route path="/order" element={<Order />}></Route>
+                    </Routes>
+                </div>
+            </TodosContextProvider>
+        </BrowserRouter>
     );
 }
 
