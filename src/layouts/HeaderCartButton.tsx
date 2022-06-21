@@ -1,10 +1,15 @@
 import React from "react";
 import classes from "./HeaderCartButton.module.css";
 
-const HeaderCartButton: React.FC = () => {
+interface IHeaderCartButtonProps {
+    onClick: () => void;
+}
+const HeaderCartButton: React.FC<IHeaderCartButtonProps> = (props) => {
     return (
         <div className={classes["button-wrapper"]}>
-            <div className={classes.button}>Cart</div>
+            <button className={classes.button} onClick={props.onClick}>
+                Cart
+            </button>
         </div>
     );
 };

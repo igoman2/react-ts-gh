@@ -1,0 +1,16 @@
+.orders {
+    margin: 2rem auto;
+    padding: 0;
+    width: 90%;
+    max-width: 60rem;
+}
+
+.orders-loading {
+    text-align: center;
+    color: white;
+}
+
+.orders-error {
+    text-align: center;
+    color: red;
+}

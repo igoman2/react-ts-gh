@@ -3,14 +3,17 @@ import Menu from "./Menu";
 import React from "react";
 import classes from "./Header.module.css";
 
-const Header: React.FC = () => {
+interface IHeaderProps {
+    onClick: () => void;
+}
+const Header: React.FC<IHeaderProps> = (props) => {
     return (
         <div className={classes.header}>
             <header>
                 <h1 className={classes.title}>react-ts</h1>
                 <Menu />
             </header>
-            <HeaderCartButton />
+            <HeaderCartButton onClick={props.onClick} />
         </div>
     );
 };

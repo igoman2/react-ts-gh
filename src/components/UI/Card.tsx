@@ -1,7 +1,11 @@
-import { Props } from "../../models/commonProps";
+import { ReactNode } from "react";
 import classes from "./Card.module.css";
 
-const Card: React.FC<Props> = (props) => {
+interface ICardProps {
+    children: ReactNode;
+}
+
+const Card: React.FC<ICardProps> = (props) => {
     return <div className={classes.card}>{props.children}</div>;
 };
 

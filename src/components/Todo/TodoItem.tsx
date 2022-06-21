@@ -1,15 +1,22 @@
+import Button from "../UI/Button";
 import React from "react";
 import classes from "./TodoItem.module.css";
 
-const TodoItem: React.FC<{
+interface ITodoItemProps {
     text: string;
     onRemoveTodo: () => void;
-}> = (props) => {
+}
+
+const TodoItem: React.FC<ITodoItemProps> = (props) => {
     return (
         <div>
             <li className={classes.item}>
                 <p>{props.text}</p>
-                <button onClick={props.onRemoveTodo}>delete</button>
+                <Button
+                    onClick={props.onRemoveTodo}
+                    text="삭제"
+                    className="sm"
+                />
             </li>
         </div>
     );

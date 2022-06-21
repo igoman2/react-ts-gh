@@ -1,0 +1,10 @@
+.close {
+    display: flex;
+    justify-content: right;
+    margin: 2rem 0;
+}
+
+.total-amount {
+    display: flex;
+    justify-content: right;
+}

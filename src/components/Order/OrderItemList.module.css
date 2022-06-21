@@ -1,0 +1,8 @@
+.list-wrapper {
+    margin: 1rem;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: right;
+}

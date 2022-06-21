@@ -1,0 +1,22 @@
+.button {
+    border: none;
+}
+
+.button:hover {
+    background-color: gray;
+}
+
+.md {
+    width: 100px;
+    height: 40px;
+}
+
+.sm {
+    width: 60px;
+    height: 30px;
+}
+
+.xs {
+    width: 30px;
+    height: 20px;
+}

@@ -1,5 +1,6 @@
 import React, { useContext, useRef } from "react";
 
+import Button from "../UI/Button";
 import Card from "../UI/Card";
 import { TodosContext } from "../../store/todos-context";
 import classes from "./NewTodo.module.css";
@@ -29,7 +30,7 @@ const NewTodo: React.FC = () => {
             <Card>
                 <label htmlFor="text">Todo text</label>
                 <input type="text" id="text" ref={todoTextInputRef} />
-                <button>Add Todo</button>
+                <Button text="추가" className="sm" />
             </Card>
         </form>
     );
