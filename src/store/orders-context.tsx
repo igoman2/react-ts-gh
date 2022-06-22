@@ -31,11 +31,13 @@ const OrdersContextProvider: React.FC<IOrdersContextProps> = (props) => {
             const existingIndex = prev.findIndex((val) => val.id === item.id);
             if (existingIndex !== -1) {
                 const existingItem = prev[existingIndex];
-                existingItem.count++;
-
+                const updatedItem = {
+                    ...existingItem,
+                    count: existingItem.count + 1,
+                };
                 const updatedItems = [...prev];
-                updatedItems[existingIndex] = existingItem;
-                return [...prev];
+                updatedItems[existingIndex] = updatedItem;
+                return updatedItems;
             } else {
                 return [...prev, { ...item, count: 1 }];
             }
@@ -49,9 +51,8 @@ const OrdersContextProvider: React.FC<IOrdersContextProps> = (props) => {
             return prev.filter((item: Item) => item.id !== orderId);
         });
         setTotalAmount((prev) => {
-            return (
-                prev - orders.find((item: Item) => item.id === orderId)!.price
-            );
+            let target = orders.find((item: Item) => item.id === orderId);
+            return prev - target!.count * target!.price;
         });
     };
     const resetItemHander = () => {

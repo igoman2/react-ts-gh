@@ -14,6 +14,7 @@ const Button: React.FC<IButtonProps> = (props) => {
             <button
                 className={`${classes.button} ${classes[`${props.className}`]}`}
                 onClick={props.onClick}
+                style={props.style}
             >
                 {props.text}
             </button>
