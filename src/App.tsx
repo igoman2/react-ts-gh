@@ -16,6 +16,7 @@ function App() {
     const openHandler = () => {
         setOnCart(true);
     };
+    console.log("test");
     return (
         <BrowserRouter>
             <OrdersContextProvider>
